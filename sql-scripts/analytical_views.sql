@@ -1,3 +1,5 @@
+-- БЛОК 1: Операционная аналитика продаж и сводный реестр сделок.
+
 -- Детальный список всех сделок с именами участников
 SELECT 
     o.order_id AS "ID Заказа",
@@ -20,3 +22,23 @@ FROM lawyers l
 JOIN orders o ON l.lawyer_id = o.lawyer_id
 GROUP BY l.full_name
 ORDER BY "Общая выручка" DESC;
+
+
+-- БЛОК 2: Временной анализ и Продуктовые метрики (Daily Revenue, AOV)
+SELECT 
+    order_date::date AS "День", 
+    SUM(price) AS "Выручка за день",
+    COUNT(order_id) AS "Количество заказов"
+FROM orders
+GROUP BY "День"
+ORDER BY "День" DESC;
+
+-- БЛОК 2: Анализ динамики выручки и среднего чека
+SELECT 
+    order_date::date AS "Дата", 
+    COUNT(order_id) AS "Заказов в день",
+    SUM(price) AS "Дневная выручка",
+    ROUND(AVG(price), 2) AS "Средний чек (AOV)"
+FROM orders
+GROUP BY "Дата"
+ORDER BY "Дата" DESC;
