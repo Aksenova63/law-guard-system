@@ -11,4 +11,4 @@
 
 Каждая пользовательская история подтверждена структурой данных:
 *   Все таблицы и связи описаны в основном скрипте: **[init_db.sql](../sql-scripts/init_db.sql)**
-*   Логика расчета выручки и метрик зафиксирована здесь: **[business_queries.sql](../sql-scripts/business_queries.sql)**
+*   Логика расчета выручки и метрик зафиксирована здесь: **[analytical_views.sql](../sql-scripts/analytical_views.sql)**
