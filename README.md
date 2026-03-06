@@ -13,4 +13,4 @@
 - **Таблица Lawyers**: база квалифицированных защитников.
 - **Таблица Orders**: транзакционный слой с Foreign Keys.
 
-docs/.gitkeep
+law-guard-system/docs/.gitkeep
