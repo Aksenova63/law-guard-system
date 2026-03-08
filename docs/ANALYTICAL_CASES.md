@@ -10,7 +10,9 @@
 3. **Исполнение** — экспертная работа юриста Александра Стального.
 4. **Финиш** — приемка результата и выплата гонорара.
 
-![Общая схема Law Guard](../diagrams/bpmn_law_guard_v1.png)
+<div style="width: 100%; height: 500px; overflow: auto; border: 1px solid #ddd;">
+  <img src="../diagrams/bpmn_law_guard.png" style="width: 2500px; max-width: none;">
+</div>
 
 ---
 
