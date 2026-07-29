@@ -20,15 +20,19 @@ INPUTS
 •	role (тип: клиент) - (05.1_users)
 •	client_name (ФИО) - (05.2_clients)
 •	client_phone (телефон) - (05.2_clients)
+
 Шаги процесса:
 Валидация: Система проверяет формат email и маску телефона.
 Хеширование: password превращается в password_hash (для таблицы 05.1_users).
 Транзакция БД: Создается запись в двух таблицах сразу:
 •	В 05.1_users (id, email, hash, role, created_at, last_login).
 •	В 05.2_clients (client_id = user_id, client_name, client_phone).
+
 Инициализация: Система присваивает пользователю user_id, статус active и выдает доступ к личному кабинету.
+
 ### 3. Регистрация и верификация юриста
-Шаги: Email/Pass -> Роль 'lawyer' -> Загрузка диплома -> Статус pending -> Проверка Админом -> active.
+
+1. Шаги: Email/Pass -> Роль 'lawyer' -> Загрузка диплома -> Статус pending -> Проверка Админом -> active.
 INPUTS
 •	email (логин, String) - (05.1_users)
 •	password (пароль, String) - (05.1_users)
@@ -38,6 +42,7 @@ INPUTS
 •	inn (String, 12 цифр) — Идентификатор (05.3_lawyer_status)
 •	experience_years (Integer) — Стаж (05.3_lawyer_status)
 •	diploma_scan (File/URL) — Пруф квалификации (05.3_lawyer_status)
+
 2.	Шаги процесса:
 Валидация: Проверка уникальности Email и ИНН в базе.
 Защита: Хеширование пароля (password -> password_hash).
@@ -84,16 +89,6 @@ o	Ручная (Admin Escalation): Если через 3 часа юрист н�
  
  
 5. Оплата услуги и закрытие сделки
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  
 ### 02.1. Сценарий: Регистрация и верификация юриста
